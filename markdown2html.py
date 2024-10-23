@@ -1,11 +1,24 @@
 #!/usr/bin/python3
 """
 markdown2html.py
-This module converts Markdown to HTML, supporting headings, unordered lists, ordered lists, paragraphs, and line breaks.
+This module converts Markdown to HTML, supporting headings, unordered lists, ordered lists, paragraphs, line breaks, bold, and emphasis.
 """
 
 import sys
 import os
+import re
+
+def apply_text_formatting(line):
+    """
+    Apply text formatting for bold and emphasis within the line.
+    - **text** becomes <b>text</b>
+    - __text__ becomes <em>text</em>
+    """
+    # Replace **text** with <b>text</b>
+    line = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', line)
+    # Replace __text__ with <em>text</em>
+    line = re.sub(r'__(.+?)__', r'<em>\1</em>', line)
+    return line
 
 def parse_markdown_line(line, inside_unordered_list, inside_ordered_list, inside_paragraph):
     """
@@ -14,6 +27,8 @@ def parse_markdown_line(line, inside_unordered_list, inside_ordered_list, inside
     Returns the HTML-converted line and updated list and paragraph states.
     """
     line = line.rstrip()
+    # Apply text formatting for bold and emphasis
+    line = apply_text_formatting(line)
 
     # Handle headings
     if line.startswith("#"):
