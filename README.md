@@ -29,12 +29,13 @@ The script requires two arguments:
 
 ```bash
 ./markdown2html.py README.md README.html
+```
 
 Error Handling:
 
 If fewer than two arguments are provided:
 
-Usage: ./markdown2html.py README.md README.html
+Usage: ```bash ./markdown2html.py README.md README.html```
 
 If the Markdown file does not exist:
 
@@ -43,7 +44,7 @@ Missing <filename>
 
 Features
 
-1. Headings: Convert Markdown headings (#, ##, etc.) into corresponding HTML headings (<h1>, <h2>, etc.).
+1. Headings: Convert Markdown headings (`#`, `##`, etc.) into corresponding HTML headings (`<h1>`, `<h2>`, etc.).
 
 
 2. Unordered Lists: Convert unordered lists (- item) into HTML <ul> and <li> elements.
@@ -65,23 +66,19 @@ Features
 Installation
 
 1. Clone the repository:
-
-
-
+```bash
 git clone https://github.com/yourusername/alx-frontend-for-fun.git
+```
 
 2. Make the script executable:
-
-
-
+```bash
 chmod +x markdown2html.py
+```
 
 3. Run the script:
-
-
-
+```bash
 ./markdown2html.py input.md output.html
-
+```
 License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
